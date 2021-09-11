@@ -1,0 +1,11 @@
+{
+    "creator_name": "Batya",
+    "creator_email": "batyavich@gmail.com",
+    "minimal_python_version": "3.9",
+    "project_name": "Project name",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "service_name": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
+    "project_description": "I forgot what this is about",
+    "version": "0.0.1",
+    "_extensions": ["jinja2_git.GitExtension"]
+}

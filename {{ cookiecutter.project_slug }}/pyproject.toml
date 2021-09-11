@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "{{ cookiecutter.service_name }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_description }}"
+authors = ["{{ cookiecutter.creator_name }} <{{ cookiecutter.creator_email }}>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+loguru = "^0.5"
+pydantic = {extras = ["dotenv"], version = "^1.8.2"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+
+[tool.black]
+line-length = 120
+target_version = ["py38"]
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+src_paths = ["{{ cookiecutter.service_name }}", "tests"]
+skip_gitignore = true
+filter_files = true
+known_first_party = ["{{ cookiecutter.service_name }}"]
+known_third_party = [
+ "loguru",
+ "pytest",
+]
+
+[build-system]
+requires = ["poetry==1.*"]
+build-backend = "poetry.masonry.api"
